@@ -1,2 +1,13 @@
 <p>elenco works! {{numerolike}}</p>
+<ol>
+  <div *ngFor="let c of clienti; let num=index">
+    <app-dettaglioclienteperelenco *ngIf="c.id%2==0"
+      [cliente]="c"  (cancella)="delete(c)"
+    >
+
+    </app-dettaglioclienteperelenco>
+
+  </div>
+</ol>
+
 <button (click)="mipiace()">Mi piace</button>
