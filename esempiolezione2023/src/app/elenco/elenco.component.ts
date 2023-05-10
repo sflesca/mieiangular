@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Cliente } from '../util/cliente';
+import { Cliente, clientiarray } from '../util/cliente';
+import { ClientiService } from '../clienti.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-elenco',
@@ -8,44 +10,13 @@ import { Cliente } from '../util/cliente';
 })
 export class ElencoComponent {
 
-  clienti : Cliente[] = [
-    {
-        "id": 1,
-        "cognome": "Rossi",
-        "nome": "Mario",
-        "tessera": "1234"
-    },
-    {
-        "id": 2,
-        "cognome": "Pippo",
-        "nome": "Mario",
-        "tessera": "1235"
-    },
-    {
-        "id": 3,
-        "cognome": "Pippo",
-        "nome": "Mario",
-        "tessera": "1235"
-    },
-    {
-        "id": 4,
-        "cognome": "Pippo",
-        "nome": "Mario",
-        "tessera": "1235"
-    },
-    {
-        "id": 52,
-        "cognome": "Rossi",
-        "nome": "Mario",
-        "tessera": "1234"
-    },
-    {
-        "id": 102,
-        "cognome": "Rossi",
-        "nome": "Mario",
-        "tessera": "1234"
-    }
-]
+  clienti! : Observable<Cliente[]>
+
+  constructor(private cliserv:ClientiService){}
+
+  ngOnInit(){
+    this.clienti=this.cliserv.getClienti()
+  }
 
   @Input() numerolike: number = 0;
 
@@ -54,11 +25,8 @@ export class ElencoComponent {
   }
 
   delete(c:Cliente){
-    let index: number = this.clienti.findIndex(cl => cl.id==c.id);
-    if (index!= -1){
-      this.clienti.splice(index,1)
-      console.log('sto cancellando '+c.id)
-    }
+    this.clienti = this.cliserv.removeCliente(c.id)
+
   }
 
 }

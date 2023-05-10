@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ElencoComponent } from './elenco/elenco.component';
 import { DettaglioclienteperelencoComponent } from './dettaglioclienteperelenco/dettaglioclienteperelenco.component';
+import { ClientiService } from './clienti.service';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     ElencoComponent,
       DettaglioclienteperelencoComponent
@@ -16,7 +17,7 @@ import { DettaglioclienteperelencoComponent } from './dettaglioclienteperelenco/
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ClientiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
