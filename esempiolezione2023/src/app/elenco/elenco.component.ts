@@ -54,7 +54,11 @@ export class ElencoComponent {
   }
 
   delete(c:Cliente){
-    console.log('sto cancellando '+c.id)
+    let index: number = this.clienti.findIndex(cl => cl.id==c.id);
+    if (index!= -1){
+      this.clienti.splice(index,1)
+      console.log('sto cancellando '+c.id)
+    }
   }
 
 }

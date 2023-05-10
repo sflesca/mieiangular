@@ -1,5 +1,5 @@
+import { Cliente } from './../util/cliente';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cliente } from '../util/cliente';
 
 @Component({
   selector: 'app-dettaglioclienteperelenco',
@@ -8,12 +8,7 @@ import { Cliente } from '../util/cliente';
 })
 export class DettaglioclienteperelencoComponent implements OnInit {
 
-  @Input() cliente: Cliente = {
-    "id": 1,
-    "cognome": "Rossi",
-    "nome": "Mario",
-    "tessera": "1234"
-  }
+  @Input() cliente!: Cliente
 
   @Output() cancella = new EventEmitter<number>()
 
