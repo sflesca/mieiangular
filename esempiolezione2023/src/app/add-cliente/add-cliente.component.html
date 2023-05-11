@@ -1,18 +1,18 @@
 <form>
 <div>
-  <label for="txtTitolo">Titolo</label>
+  <label for="txtTitolo">Cognome</label>
   <input type="text" id="txtCognome" required [(ngModel)]="cliente.cognome" name="titolo">
 </div>
 
 <div>
-  <label for="txtAutore">Autore</label>
+  <label for="txtAutore">Nome</label>
   <input type="text" id="txtNome" required [(ngModel)]="cliente.nome" name="autore">
 </div>
 
 <div>
-  <label for="txtTesto">Testo</label>
-  <textarea id="txtTessera" required [(ngModel)]="cliente.tessera" name="testo"></textarea>
+  <label for="txtTesto">Tessera</label>
+  <input type="number" id="txtTessera" required [(ngModel)]="cliente.tessera" name="testo">
 </div>
 
-<button type="button">Aggiungi cliente</button>
+<button type="button" (click)="add()">Aggiungi cliente</button>
 </form>

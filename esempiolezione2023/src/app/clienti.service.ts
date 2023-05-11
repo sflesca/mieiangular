@@ -25,4 +25,11 @@ export class ClientiService {
     }
     return of(this.clienti)
   }
+
+  add(c:Cliente){
+    let cid = Math.max(...(this.clienti.map(cl=>cl.id)))+1
+    c.id = cid
+    this.clienti.push(c)
+    console.log(this.clienti)
+  }
 }

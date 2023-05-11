@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Cliente } from '../util/cliente';
+import { ClientiService } from '../clienti.service';
 
 @Component({
   selector: 'app-add-cliente',
@@ -8,5 +9,11 @@ import { Cliente } from '../util/cliente';
 })
 export class AddClienteComponent {
   cliente: Cliente = { id: 0, cognome : '', nome : '', tessera : ''}
+
+  constructor(private clientesrv:ClientiService){}
+
+  add(){
+    this.clientesrv.add(this.cliente)
+  }
 
 }
