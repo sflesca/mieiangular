@@ -8,11 +8,12 @@ import { Observable, of } from 'rxjs';
 export class ClientiService {
 
   clienti: Cliente[] = clientiarray
+  clientiobs:Observable<Cliente[]> = of(clientiarray)
 
   constructor() { }
 
   getClienti(): Observable<Cliente[]>{
-    return of(this.clienti)
+    return this.clientiobs
   }
 
   removeCliente(id:number): Observable<Cliente[]>{
@@ -23,7 +24,7 @@ export class ClientiService {
     }else{
       console.log('Elemento '+id+' non trovato')
     }
-    return of(this.clienti)
+    return this.clientiobs
   }
 
   add(c:Cliente){

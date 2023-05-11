@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Cliente } from '../util/cliente';
+import { Cliente, ClienteImp } from '../util/cliente';
 import { ClientiService } from '../clienti.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class AddClienteComponent {
 
   add(){
     this.clientesrv.add(this.cliente)
+    this.cliente = new ClienteImp()
   }
 
 }

@@ -1,8 +1,30 @@
-export interface Cliente {
-  id : number,
-  cognome : string,
-  nome : string,
-  tessera : string
+export interface Cliente{
+  id:number,
+  cognome:string,
+  nome: string,
+  tessera:string
+}
+
+export class ClienteImp implements Cliente{
+  public id:number
+  public cognome:string
+  public nome:string
+  public tessera:string
+
+  constructor(){
+    this.id=0
+    this.cognome= ''
+    this.nome = ''
+    this.tessera = ''
+  }
+
+  copy(c:Cliente) : ClienteImp{
+    this.id= c.id
+    this.cognome = c.cognome
+    this.nome = c.nome
+    this.tessera = c.tessera
+    return this
+  }
 }
 
 export const clientiarray: Cliente[] = [
