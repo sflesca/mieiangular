@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Cliente, clientiarray } from './util/cliente';
 import { Observable, of } from 'rxjs';
+import { ClientiService } from './util/ClientiService';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientiService {
+export class ClientiServiceLocal extends ClientiService{
 
   clienti: Cliente[] = clientiarray
   clientiobs:Observable<Cliente[]> = of(clientiarray)
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
-  getClienti(): Observable<Cliente[]>{
+  override getClienti(): Observable<Cliente[]>{
     return this.clientiobs
   }
 
-  removeCliente(id:number): Observable<Cliente[]>{
+  override removeCliente(id:number): Observable<Cliente[]>{
     let index: number = this.clienti.findIndex(cl => cl.id==id);
     if (index!= -1){
       this.clienti.splice(index,1)
@@ -27,7 +30,7 @@ export class ClientiService {
     return this.clientiobs
   }
 
-  add(c:Cliente){
+  override add(c:Cliente){
     let cid = Math.max(...(this.clienti.map(cl=>cl.id)))+1
     c.id = cid
     this.clienti.push(c)

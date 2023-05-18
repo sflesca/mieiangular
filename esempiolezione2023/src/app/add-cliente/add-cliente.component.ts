@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Cliente, ClienteImp } from '../util/cliente';
-import { ClientiService } from '../clienti.service';
+import { ClientiService } from '../util/ClientiService';
 
 @Component({
   selector: 'app-add-cliente',

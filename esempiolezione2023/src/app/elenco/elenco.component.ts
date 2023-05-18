@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Cliente, clientiarray } from '../util/cliente';
-import { ClientiService } from '../clienti.service';
 import { Observable } from 'rxjs';
+import { ClientiService } from '../util/ClientiService';
 
 @Component({
   selector: 'app-elenco',
