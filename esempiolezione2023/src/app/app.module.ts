@@ -9,6 +9,8 @@ import { AddClienteComponent } from './add-cliente/add-cliente.component';
 import { FormsModule } from '@angular/forms';
 import { ClientiService } from './util/ClientiService';
 import { ClientiServiceLocal } from './clienti.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ClientiServiceRestService } from './util/ClientiServiceRest.service';
 
 
 @NgModule({
@@ -21,9 +23,10 @@ import { ClientiServiceLocal } from './clienti.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [{ provide: ClientiService, useClass: ClientiServiceLocal }],
+  providers: [{ provide: ClientiService, useClass: ClientiServiceRestService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

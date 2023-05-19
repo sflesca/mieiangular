@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Cliente, ClienteImp } from '../util/cliente';
 import { ClientiService } from '../util/ClientiService';
 
@@ -10,10 +10,12 @@ import { ClientiService } from '../util/ClientiService';
 export class AddClienteComponent {
   cliente: Cliente = { id: 0, cognome : '', nome : '', tessera : ''}
 
+  @Output() addcliente:EventEmitter<Cliente> = new EventEmitter<Cliente>()
+
   constructor(private clientesrv:ClientiService){}
 
   add(){
-    this.clientesrv.add(this.cliente)
+    this.addcliente.emit(this.cliente)
     this.cliente = new ClienteImp()
   }
 

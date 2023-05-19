@@ -6,5 +6,5 @@ export interface ClientiServiceInterface {
 
   removeCliente(id:number): Observable<Cliente[]>
 
-  add(c:Cliente): void
+  add(c:Cliente): Observable<number>
 }

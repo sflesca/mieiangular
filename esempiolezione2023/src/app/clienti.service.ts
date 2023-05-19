@@ -9,7 +9,7 @@ import { ClientiService } from './util/ClientiService';
 export class ClientiServiceLocal extends ClientiService{
 
   clienti: Cliente[] = clientiarray
-  clientiobs:Observable<Cliente[]> = of(clientiarray)
+  override clientiobs:Observable<Cliente[]> = of(clientiarray)
 
   constructor() {
     super();
@@ -30,10 +30,11 @@ export class ClientiServiceLocal extends ClientiService{
     return this.clientiobs
   }
 
-  override add(c:Cliente){
+  override add(c:Cliente): Observable<number>{
     let cid = Math.max(...(this.clienti.map(cl=>cl.id)))+1
     c.id = cid
     this.clienti.push(c)
     console.log(this.clienti)
+    return of(c.id)
   }
 }

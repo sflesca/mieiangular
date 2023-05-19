@@ -29,4 +29,10 @@ export class ElencoComponent {
 
   }
 
+  add(c:Cliente){
+    console.log('qui')
+    this.cliserv.add(c).subscribe(val => this.clienti=this.cliserv.getClienti())
+
+  }
+
 }
