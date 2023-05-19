@@ -19,7 +19,7 @@ export class ClientiServiceLocal extends ClientiService{
     return this.clientiobs
   }
 
-  override removeCliente(id:number): Observable<Cliente[]>{
+  override removeCliente(id:number): Observable<Boolean>{
     let index: number = this.clienti.findIndex(cl => cl.id==id);
     if (index!= -1){
       this.clienti.splice(index,1)
@@ -27,7 +27,7 @@ export class ClientiServiceLocal extends ClientiService{
     }else{
       console.log('Elemento '+id+' non trovato')
     }
-    return this.clientiobs
+    return of(true)
   }
 
   override add(c:Cliente): Observable<number>{

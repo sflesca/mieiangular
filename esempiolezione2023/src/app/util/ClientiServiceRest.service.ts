@@ -25,8 +25,8 @@ export class ClientiServiceRestService extends ClientiService {
     this.clientiobs.subscribe()
     return this.clientiobs
   }
-  override removeCliente(id: number): Observable<Cliente[]> {
-    throw new Error('Method not implemented.');
+  override removeCliente(id: number): Observable<Boolean> {
+    return this.http.delete<Boolean>('http://localhost:8080/cliente?id='+id)
   }
   override add(c: Cliente): Observable<number> {
     return this.http.post<number>('http://localhost:8080/cliente', c, httpOptions)

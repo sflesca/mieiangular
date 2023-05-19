@@ -9,7 +9,7 @@ export abstract class ClientiService implements ClientiServiceInterface{
   getClienti(): Observable<Cliente[]> {
     throw new Error("Method not implemented.");
   }
-  removeCliente(id: number): Observable<Cliente[]> {
+  removeCliente(id: number): Observable<Boolean> {
     throw new Error("Method not implemented.");
   }
   add(c: Cliente): Observable<number> {

@@ -25,7 +25,7 @@ export class ElencoComponent {
   }
 
   delete(c:Cliente){
-    this.clienti = this.cliserv.removeCliente(c.id)
+    this.cliserv.removeCliente(c.id).subscribe(val => this.clienti=this.cliserv.getClienti())
 
   }
 
