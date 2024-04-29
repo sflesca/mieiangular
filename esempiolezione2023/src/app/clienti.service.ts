@@ -31,7 +31,9 @@ export class ClientiServiceLocal extends ClientiService{
   }
 
   override add(c:Cliente): Observable<number>{
-    let cid = Math.max(...(this.clienti.map(cl=>cl.id)))+1
+    let cid = 0;
+    if (this.clienti.length>0)
+      cid = Math.max(...(this.clienti.map(cl=>cl.id)))+1
     c.id = cid
     this.clienti.push(c)
     console.log(this.clienti)
