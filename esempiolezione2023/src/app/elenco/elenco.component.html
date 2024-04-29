@@ -1,9 +1,17 @@
 <p>elenco works! {{numerolike}}</p>
+With new style
 <ol>
+  @for (c of clienti|async; ; track c.id; let i = $index) {
+  <app-dettaglioclienteperelenco [cliente]="c" (cancella)="delete(c)">
+
+  </app-dettaglioclienteperelenco>
+  }
+</ol>
+With old style
+<ol>
+
   <div *ngFor="let c of clienti|async; let num=index">
-    <app-dettaglioclienteperelenco
-      [cliente]="c"  (cancella)="delete(c)"
-    >
+    <app-dettaglioclienteperelenco [cliente]="c" (cancella)="delete(c)">
 
     </app-dettaglioclienteperelenco>
 
@@ -12,4 +20,4 @@
 
 <button (click)="mipiace()">Mi piace</button>
 
-<app-add-cliente (addcliente) = add($event)></app-add-cliente>
+<app-add-cliente (addcliente)=add($event)></app-add-cliente>
