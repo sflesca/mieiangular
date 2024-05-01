@@ -9,4 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class CicciobelloComponent {
   @Input() nome!:string
+
+  cambia(){
+    this.nome = this.nome + ' ' + this.nome
+  }
 }
