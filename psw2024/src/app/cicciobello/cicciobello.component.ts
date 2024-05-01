@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cicciobello',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './cicciobello.component.css'
 })
 export class CicciobelloComponent {
-
+  @Input() nome!:string
 }
