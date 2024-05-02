@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CicciobelloComponent } from './cicciobello/cicciobello.component';
+import { NgModule } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
