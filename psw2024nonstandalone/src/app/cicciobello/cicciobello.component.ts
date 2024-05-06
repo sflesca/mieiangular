@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Categoria } from '../util/Categoria';
+import { CategorieService } from '../util/categorie.service';
 
 @Component({
   selector: 'app-cicciobello',
@@ -7,5 +10,13 @@ import { Component, Input } from '@angular/core';
 })
 export class CicciobelloComponent {
 
-  @Input() nome!:string
+  @Input() nome!  :string
+
+  categorie! : Observable<Categoria[]>
+
+  constructor(private catserv:CategorieService){}
+
+  ngOnInit(){
+    this.categorie = this.catserv.getCategories()
+  }
 }

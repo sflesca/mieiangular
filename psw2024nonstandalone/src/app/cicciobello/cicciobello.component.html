@@ -1,1 +1,5 @@
 {{nome}} works!
+
+@for(c of categorie|async; track c.id ){
+{{c.id}},{{c.nome}}<br>
+}@empty{ Nessuna categoria caricata}
