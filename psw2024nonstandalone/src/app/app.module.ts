@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CicciobelloComponent } from './cicciobello/cicciobello.component';
 import { CategorieService } from './util/categorie.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ElencoCategorieComponent } from './elenco-categorie/elenco-categorie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CicciobelloComponent
+    CicciobelloComponent,
+    ElencoCategorieComponent
   ],
   imports: [
     BrowserModule,

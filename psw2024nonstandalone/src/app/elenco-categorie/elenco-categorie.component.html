@@ -1,0 +1,7 @@
+<p>elenco-categorie works!</p>
+
+@for(c of categorie(); track c.id ){
+  {{c.id}},{{c.nome}}<br>
+}@empty{ Nessuna categoria caricata}
+
+<button (click)="reload()">Ricarica</button>
