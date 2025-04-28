@@ -26,7 +26,7 @@ import { ClientiServiceRestService } from './util/ClientiServiceRest.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [{ provide: ClientiService, useClass: ClientiServiceLocal }],
+  providers: [{ provide: ClientiService, useClass: ClientiServiceRestService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
