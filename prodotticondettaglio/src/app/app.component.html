@@ -1,0 +1,8 @@
+<div style="display: flex;">
+  <div style="width: 40%; border-right: 1px solid #ccc; padding: 1rem;">
+    <app-product-list (productSelected)="onProductSelected($event)"></app-product-list>
+  </div>
+  <div style="width: 60%; padding: 1rem;">
+    <app-ProductDetail [product]="selectedProduct"></app-ProductDetail>
+  </div>
+</div>
