@@ -6,3 +6,7 @@
     <app-ProductDetail [product]="selectedProduct"></app-ProductDetail>
   </div>
 </div>
+Inserisci un numero: 
+<input type="number" #numero (keyup)="0" /> 
+<div>
+    Il doppio di {{numero.value}} &egrave;
