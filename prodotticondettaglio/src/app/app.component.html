@@ -7,7 +7,7 @@
   </div>
 </div>
 Inserisci un numero: 
-<input type="number" #numero (input)="0" /> 
+<input type="number" #numero (keyup)="0" /> 
 <div *ngIf="numero.value">
     Il doppio di {{numero.value}} è {{2 * (+numero.value)}}  ;
 </div>
